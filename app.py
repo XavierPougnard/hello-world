@@ -1,4 +1,3 @@
-#essai1
 import os
 import mod_wsgi.server
 

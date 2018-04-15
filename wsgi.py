@@ -7,11 +7,14 @@ def hello():
     return "eh oh"
 
 
-@application.route("/request_status")
-def answer():
-    content_dic = {"bot id" : "ezy-park", "user": "Xavier"}
-    messageX = json.dumps(content_dic, indent=4)
-    return messageX
+@application.route("/payment/status", methods=['GET'])
+def expire_check():
+    #Check internal systems to determine if transactionId URL parameter is valid or expired
+    #If valid, return 200 OK with valid status in JSON payload: {"status":"VALID"}
+    #If expired, return 200 OK with expired status in JSON payload: {"status":"EXPIRED"}
+    response = Response("{'status':'VALID'}", status=200)
+    response.headers.add('Content-Type', 'application/json')
+    return response
 	    
 @application.route("/completion")
 def answer2():

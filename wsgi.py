@@ -16,11 +16,11 @@ def expire_check():
     response.headers.add('Content-Type', 'application/json')
     return response
 	    
-@application.route("/completion")
-def answer2():
-    content_dic2 = {"bot id" : "ezy-park2", "user": "Xavier2"}
-    messageY = json.dumps(content_dic2, indent=4)
-    return messageY
+@application.route("/payments/pay", methods=['POST'])
+def payment_process():
+    response = Response("{'status':'SUCCESS'}", status=200)
+    response.headers.add('Content-Type', 'application/json')
+    return response
 
 if __name__ == "__main__":
     application.run()

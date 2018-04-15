@@ -15,7 +15,7 @@ def expire_check():
     content = {'status':'VALID'}
     return content
 	    
-@application.route("/payments/pay", methods=['POST'])
+@application.route("/payment/pay", methods=['POST'])
 def payment_process():
     content = {'status':'SUCCESS'}
     return content

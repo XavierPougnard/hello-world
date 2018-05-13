@@ -26,11 +26,11 @@ def homepage():
 			<p>
 				<img src= 'very easy parking.png'>
 			</p>
-			<form action="{{ url_for('charge') }}" method="POST">
+			<form action="payment/charge" method="POST">
 			  <script
 			    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-			    data-key="{{ pub_key }}"
-			    data-amount="{{ amount }}"
+			    data-key="pk_test_aw172A4CceQhwDIc55FJiF1J"
+			    data-amount="999"
 			    data-name="Xavier Pougnard"
 			    data-description="Example charge"
 			    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"

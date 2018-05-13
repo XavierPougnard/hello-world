@@ -73,7 +73,7 @@ def charge():
 
 @application.route('/thanks')
 def thanks():
-    #return render_template('thanks.html')
+    return render_template('thanks.html')
     return '''
 	<!DOCTYPE html>
 	<html>

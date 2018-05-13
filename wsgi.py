@@ -32,7 +32,7 @@ def process_charge():
     stripe.Charge.create(
 	    amount = 1,
 		currency = "eur",
-		source = "",
+		source = "tok_KPte7942xySKBKyrBu11yEpf",
 		metadata = {'order_id' : '6735'}
 	)
     return "essai ..."	

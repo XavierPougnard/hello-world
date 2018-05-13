@@ -36,7 +36,7 @@ def process_payment():
 def charge():
     customer = stripe.Customer.create(email=request.form['stripeEmail'], source=request.form['stripeToken'])
     charge = stripe.Charge.create(
-        customer=customer.id
+        customer=customer.id,
 	amount=amount,
 	currency='eur',
 	description='parking'

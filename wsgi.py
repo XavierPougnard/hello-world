@@ -19,7 +19,7 @@ def homepage():
 	    <p>
 			<img src= 'very easy parking.png'>
 		</p>
-		<form action="stripe_token" method="POST">
+		<form action="payment/stripe_token" method="POST">
 		  <script
 		    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 		    data-key="pk_test_aw172A4CceQhwDIc55FJiF1J"

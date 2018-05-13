@@ -1,46 +1,18 @@
 import json
 import stripe
-from flask import Flask
-from flask import request
+from flask import Flask, request, redirect, render_template, url_for
+from flask import request, redirect
 application = Flask(__name__)
-stripe.api_key = "sk_test_GFPwTzowsn7YzgX4wnPBRfAt"
+
+pub_key = "pk_test_aw172A4CceQhwDIc55FJiF1J"
+secret_key = "sk_test_GFPwTzowsn7YzgX4wnPBRfAt"
+amount = 999
+
+stripe.api_key = secret_key
 
 @application.route("/", methods=['GET'])
 def homepage():
-    return """
-	<!DOCTYPE html>
-	<html>
-	  <head>
-	    <title>Very Easy Parking</title>
-	    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-		<script src="JSlibrary.js" type="text/javascript"></script>
-	  </head>
-	  <body>
-	    <p>
-			<img src= 'very easy parking.png'>
-		</p>
-		<form action="payment/stripe_token" method="POST">
-		  <script
-		    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-		    data-key="pk_test_aw172A4CceQhwDIc55FJiF1J"
-		    data-amount="999"
-		    data-name="Xavier Pougnard"
-		    data-description="Example charge"
-		    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-		    data-locale="auto"
-		    data-currency="eur">
-		  </script>
-	       </form>
-	  </body>
-	</html>
-    """    
-
-@application.route("/", methods=['POST'])
-def get_token0():
-    print (request.is_json)
-    content = request.get_json()
-    print (content)
-    return 'JSON received'
+    return render_template('index.html', pub_key=pub_key, amount=amount)    
 
 @application.route('/payment/status', methods=['GET'])
     #Check internal systems to determine if transactionId URL parameter is valid or expired
@@ -60,20 +32,20 @@ def process_payment():
     messageY = json.dumps(content, indent=4)
     return messageY
 
-@application.route('/payment/stripe_token', methods=['POST'])
-def get_token():
-    print (request.form)
-    return "got it ?"
+@application.route('/payment/charge', methods=['POST'])
+def charge():
+    customer = stripe.Customer.create(email=request.form['stripeEmail'], source=request.form['stripeToken'])
+    charge = stripe.Charge.create(
+        customer=customer.id
+	amount=amount,
+	currency='eur',
+	description='parking'
+    )
+    return redirect(url_for('thanks'))	
 
-@application.route('/payment/charge', methods=['GET'])
-def process_charge():
-    stripe.Charge.create(
-	    amount = 1,
-		currency = "eur",
-		source = "tok_KPte7942xySKBKyrBu11yEpf",
-		metadata = {'order_id' : '6735'}
-	)
-    return "essai ..."	
-	
+@application.route('/thanks')
+def thanks():
+    return render_template('thanks.html')
+
 if __name__ == "__main__":
     application.run()

@@ -62,9 +62,8 @@ def process_payment():
 
 @application.route('/payment/stripe_token', methods=['POST'])
 def get_token():
-    data = request.data
-    print (data)
-    return data
+    print (request.form)
+    return "got it ?"
 
 @application.route('/payment/charge', methods=['GET'])
 def process_charge():

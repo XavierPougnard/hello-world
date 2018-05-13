@@ -22,8 +22,7 @@ def homepage():
 		<form action="payment/stripe_token" method="POST">
 		  <script
 		    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-		    data-key="sk_test_GFPwTzowsn7YzgX4wnPBRfAt"
-		    #data-key="pk_test_aw172A4CceQhwDIc55FJiF1J"
+		    data-key="pk_test_aw172A4CceQhwDIc55FJiF1J"
 		    data-amount="999"
 		    data-name="Xavier Pougnard"
 		    data-description="Example charge"

@@ -1,6 +1,8 @@
 import json
+import stripe
 from flask import Flask
 application = Flask(__name__)
+stripe.api_key = "sk_test_GFPwTzowsn7YzgX4wnPBRfAt"
 
 @application.route("/")
 def hello():
@@ -25,5 +27,15 @@ def process_payment():
     messageY = json.dumps(content, indent=4)
     return messageY
 
+@application.route('/payment/charge', methods=['GET'])
+def process_charge():
+    stripe.Charge.create(
+	    amount = 1,
+		currency = "eur",
+		source = "",
+		metadata = {'order_id' : '6735'}
+	)
+    return "essai ..."	
+	
 if __name__ == "__main__":
     application.run()

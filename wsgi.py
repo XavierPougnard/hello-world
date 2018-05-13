@@ -74,23 +74,6 @@ def charge():
 @application.route('/thanks')
 def thanks():
     return render_template('thanks.html')
-    return '''
-	<!DOCTYPE html>
-	<html>
-	  <head>
-	    <title>Thank You !!!</title>
-	    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-		<script src="JSlibrary.js" type="text/javascript"></script>
-	  </head>
-	  <body>
-	  Thank You for your purchase @ Ezy-Park !!!
-	    <p>
-			<img src= 'very easy parking.png'>
-		</p>
-	  </body>
-	</html>
-    '''
-
 
 if __name__ == "__main__":
     application.run()

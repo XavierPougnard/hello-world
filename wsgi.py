@@ -1,7 +1,7 @@
 import json
 import stripe
-from flask import Flask, request, redirect, render_template, url_for
-from flask import request, redirect
+from flask import Flask, request, redirect
+from flask import render_template, url_for
 application = Flask(__name__)
 
 pub_key = "pk_test_aw172A4CceQhwDIc55FJiF1J"

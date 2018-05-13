@@ -5,7 +5,7 @@ from flask import request
 application = Flask(__name__)
 stripe.api_key = "sk_test_GFPwTzowsn7YzgX4wnPBRfAt"
 
-@application.route("/")
+@application.route("/", methods=['GET'])
 def homepage():
     return """
 	<!DOCTYPE html>
@@ -34,6 +34,13 @@ def homepage():
 	  </body>
 	</html>
     """    
+
+@application.route("/", methods=['POST'])
+def get_token0():
+    print (request.is_json)
+    content = request.get_json()
+    print (content)
+    return 'JSON received'
 
 @application.route('/payment/status', methods=['GET'])
     #Check internal systems to determine if transactionId URL parameter is valid or expired

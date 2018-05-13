@@ -22,7 +22,8 @@ def homepage():
 		<form action="payment/stripe_token" method="POST">
 		  <script
 		    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-		    data-key="pk_test_aw172A4CceQhwDIc55FJiF1J"
+		    data-key="sk_test_GFPwTzowsn7YzgX4wnPBRfAt"
+		    #data-key="pk_test_aw172A4CceQhwDIc55FJiF1J"
 		    data-amount="999"
 		    data-name="Xavier Pougnard"
 		    data-description="Example charge"
@@ -64,8 +65,10 @@ def process_payment():
 def get_token():
     print (request.is_json)
     content = request.get_json()
+    token = content.id
     print (content)
-    return 'JSON received'
+    print (token)
+    return token
 
 @application.route('/payment/charge', methods=['GET'])
 def process_charge():

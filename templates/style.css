@@ -1,0 +1,66 @@
+/*
+style.css
+------------
+par X. Pougnard
+*/
+
+*
+{
+	font-family: "comic sans ms", Arial, sans-serif;
+}
+
+body
+{
+	background-color : rgb(209,209,209);
+	border : 3px rgb(230,230,230) groove;
+	border-radius : 20px;
+}
+h1
+{
+
+    color: rgb(0,174,0);
+	font-size: 4em;
+	text-align: center;
+}
+
+.introduction
+{
+	color: rgb(0,174,0);
+	font-size : 2.5em;
+	text-align : center;
+
+}
+
+.banner
+{
+	text-align : center;
+}
+
+ol
+{
+	color : orange;
+	font-size : 2em;
+	padding-left : 200px;
+}
+
+strong
+{
+	color : green;
+	font-style: italic;
+	font-weight : bold;
+}
+
+form
+{
+	text-align : center;
+}
+
+.floating_image
+{
+	float : left;
+}
+
+footer
+{
+	font-size : 0.8em;
+}

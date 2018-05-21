@@ -6,12 +6,13 @@ application = Flask(__name__)
 
 pub_key = "pk_test_aw172A4CceQhwDIc55FJiF1J"
 secret_key = "sk_test_GFPwTzowsn7YzgX4wnPBRfAt"
-amount = 999
+amount = 0
 
 stripe.api_key = secret_key
 
 @application.route("/", methods=['GET'])
 def homepage():
+    amount = int(request.args.get('amount'))
     return render_template('index.html', pub_key=pub_key, amount=amount)    
     
 @application.route('/payment/status', methods=['GET'])

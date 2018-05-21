@@ -37,7 +37,7 @@ def charge():
     customer = stripe.Customer.create(email=request.form['stripeEmail'], source=request.form['stripeToken'])
     charge = stripe.Charge.create(
         customer=customer.id,
-	amount=amount,
+	amount=150,
 	currency='eur',
 	description='parking'
     )

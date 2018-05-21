@@ -6,7 +6,6 @@ application = Flask(__name__)
 
 pub_key = "pk_test_aw172A4CceQhwDIc55FJiF1J"
 secret_key = "sk_test_GFPwTzowsn7YzgX4wnPBRfAt"
-amount = 0
 
 stripe.api_key = secret_key
 

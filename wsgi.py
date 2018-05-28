@@ -9,11 +9,11 @@ secret_key = "sk_test_GFPwTzowsn7YzgX4wnPBRfAt"
 
 stripe.api_key = secret_key
 
-var amount = 100
+var amountX = 100
 
 @application.route("/", methods=['GET'])
 def homepage():
-    amount = int(request.args.get('amount'))
+    amountX = int(request.args.get('amount'))
     return render_template('index.html', pub_key=pub_key, amount=amount)    
     
 @application.route('/payment/status', methods=['GET'])
@@ -39,7 +39,7 @@ def charge():
     customer = stripe.Customer.create(email=request.form['stripeEmail'], source=request.form['stripeToken'])
     charge = stripe.Charge.create(
         customer=customer.id,
-	amount=150,
+	amount=amountX,
 	currency='eur',
 	description='parking'
     )

@@ -9,7 +9,7 @@ secret_key = "sk_test_GFPwTzowsn7YzgX4wnPBRfAt"
 
 stripe.api_key = secret_key
 
-var amountX = 100;
+amountX = 100;
 
 @application.route("/", methods=['GET'])
 def homepage():

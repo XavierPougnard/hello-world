@@ -9,6 +9,8 @@ secret_key = "sk_test_GFPwTzowsn7YzgX4wnPBRfAt"
 
 stripe.api_key = secret_key
 
+var amount = 100
+
 @application.route("/", methods=['GET'])
 def homepage():
     amount = int(request.args.get('amount'))

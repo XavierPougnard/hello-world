@@ -9,12 +9,11 @@ secret_key = "sk_test_GFPwTzowsn7YzgX4wnPBRfAt"
 
 stripe.api_key = secret_key
 
-amountX = 100;
-
 @application.route("/", methods=['GET'])
 def homepage():
+    global amountX 
     amountX = int(request.args.get('amount'))
-    return render_template('index.html', pub_key=pub_key, amount=amount)    
+    return render_template('index.html', pub_key=pub_key, amount=amountX)    
     
 @application.route('/payment/status', methods=['GET'])
     #Check internal systems to determine if transactionId URL parameter is valid or expired

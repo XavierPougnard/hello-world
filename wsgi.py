@@ -38,7 +38,7 @@ def process_payment():
     return messageY
 
 @application.route('/stripe/events', methods=['POST'])
-def process_payment():
+def stripe_event():
     print('Stripe_event')
     contentPost = request.json
     print(contentPost)

@@ -32,7 +32,7 @@ def expire_check():
 def process_payment():
     print('payment_pay')
     contentPost = request.json
-    print contentPost
+    print(contentPost)
     content = {'status':'SUCCESS'}
     messageY = json.dumps(content, indent=4)
     return messageY

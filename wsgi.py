@@ -22,6 +22,7 @@ def homepage():
     #content = {'status':'VALID'}
     #return content
 def expire_check():
+    print('payment_status')
     content = {'status':'VALID'}
     messageX = json.dumps(content, indent=4)
     return messageX
@@ -29,6 +30,9 @@ def expire_check():
 
 @application.route('/payment/pay', methods=['POST'])
 def process_payment():
+    print('payment_pay')
+    contentPost = request.json
+    print contentPost
     content = {'status':'SUCCESS'}
     messageY = json.dumps(content, indent=4)
     return messageY

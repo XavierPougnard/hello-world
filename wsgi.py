@@ -37,15 +37,6 @@ def process_payment():
     messageY = json.dumps(content, indent=4)
     return messageY
 
-@application.route('/stripe/events', methods=['POST'])
-def stripe_event():
-    print('Stripe_event')
-    contentPost = request.json
-    print(contentPost)
-    content = {'status':'SUCCESS'}
-    messageY = json.dumps(content, indent=4)
-    return messageY
-
 @application.route('/payment/charge', methods=['POST'])
 def charge():
     customer = stripe.Customer.create(email=request.form['stripeEmail'], source=request.form['stripeToken'])

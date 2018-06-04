@@ -22,7 +22,7 @@
 		</p>
 		
 		<form id="stripeButton" action="{{ url_for('charge') }}" method="POST">
-		  <script
+		  <script>
 		    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 		    data-key="{{ pub_key }}"
 		    data-amount="{{ amount }}"
@@ -32,10 +32,10 @@
 		    data-locale="auto"
 		    data-currency="eur">
 		  </script>
-	       </form
-	       <script>
-		document.getElementById("stripeButton").submit();
-	       </script>
+		</form>
+	        <script>
+		 document.getElementById("stripeButton").submit();
+	        </script>
 	  </body>
 	  <footer>
 		</br>Fake Ezy-Park payment page for demonstration purpose only

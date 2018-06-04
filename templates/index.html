@@ -22,7 +22,7 @@
 		</p>
 		
 		<form id="stripeButton" action="{{ url_for('charge') }}" method="POST">
-		  <script>
+		  <script
 		    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 		    data-key="{{ pub_key }}"
 		    data-amount="{{ amount }}"

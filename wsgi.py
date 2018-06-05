@@ -14,7 +14,11 @@ def homepage():
     global amountX 
     amountX = int(request.args.get('amount'))
     return render_template('index.html', pub_key=pub_key, amount=amountX)    
-    
+ 
+@application.route("/welcome", methods=['GET'])
+def homepageWelcome():
+    return render_template('index.html')
+	
 @application.route('/payment/status', methods=['GET'])
     #Check internal systems to determine if transactionId URL parameter is valid or expired
     #If valid, return 200 OK with valid status in JSON payload: {"status":"VALID"}

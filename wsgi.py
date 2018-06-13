@@ -36,7 +36,7 @@ def expire_check():
 def process_payment():
     print('payment_pay')
     contentPost = request.json
-    print(request)
+    print(request.data)
     print(contentPost)
     #contentForm = request.form['paymentMethodToken']
     #print(contentForm)

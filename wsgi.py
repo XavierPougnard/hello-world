@@ -37,6 +37,8 @@ def process_payment():
     print('payment_pay')
     contentPost = request.json
     print(contentPost)
+    contentForm = request.form['paymentMethodToken']
+    print(contentForm)
     content = {'status':'SUCCESS'}
     messageY = json.dumps(content, indent=4)
     return messageY

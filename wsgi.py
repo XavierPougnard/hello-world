@@ -5,7 +5,7 @@ from flask import Flask, request, redirect
 from flask import render_template, url_for
 application = Flask(__name__)
 
-pub_key = "pk_test_aw172A4CceQhwDIc55FJiF1J"
+pub_key = "pk_live_4qnx5Cq8bA6FWxGD52Tg6YYK"
 secret_key = "sk_test_GFPwTzowsn7YzgX4wnPBRfAt"
 
 stripe.api_key = secret_key

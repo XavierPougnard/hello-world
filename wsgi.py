@@ -38,6 +38,12 @@ def process_payment():
     print('payment_pay')
     stripeToken =  getToken(request.json)
     print(stripeToken)
+    charge = stripe.Charge.create(
+        amount = 011,
+	currency='eur',
+	description='parking',
+	source = stripeToken
+    )
     content = {'status':'SUCCESS'}
     messageY = json.dumps(content, indent=4)
     return messageY

@@ -1,5 +1,6 @@
 import json
 import stripe
+from biblio import *
 from flask import Flask, request, redirect
 from flask import render_template, url_for
 application = Flask(__name__)
@@ -35,11 +36,8 @@ def expire_check():
 @application.route('/payment/pay', methods=['POST'])
 def process_payment():
     print('payment_pay')
-    contentPost = request.json
-    print(request.data)
-    print(contentPost)
-    #contentForm = request.form['paymentMethodToken']
-    #print(contentForm)
+    stripeToken =  getToken(request.json)
+    print(stripeToken)
     content = {'status':'SUCCESS'}
     messageY = json.dumps(content, indent=4)
     return messageY

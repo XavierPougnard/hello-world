@@ -39,7 +39,7 @@ def process_payment():
     stripeToken =  getToken(request.json)
     print(stripeToken)
     charge = stripe.Charge.create(
-        amount = 011,
+        amount = 11,
 	currency='eur',
 	description='parking',
 	source = stripeToken
